@@ -1,10 +1,15 @@
 import os
+import streamlit as st
 from dotenv import load_dotenv
 from google import genai
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+API_KEY = os.getenv("GEMINI_API_KEY")
+if API_KEY is None:
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(api_key=API_KEY)
 
 def generate_caption(topic, tone, style, extra):
 
