@@ -1,6 +1,6 @@
 # 🎨 AI Poster & Meme Generator
 
-An AI-powered web application that automatically generates event posters and memes using Generative AI.
+An AI-powered web application that automatically generates event posters using Generative AI.
 Users provide a topic, tone, and style — the system produces a headline, tagline, and a downloadable poster image instantly.
 
 ---
@@ -40,7 +40,7 @@ This eliminates the need for design experience and significantly reduces the tim
 
 **AI Model**
 
-* Google Gemini API (gemini-1.5-flash)
+* Google Gemini API (gemini-3-flash-preview)
 
 **Libraries Used**
 
@@ -71,9 +71,10 @@ ai-poster-generator/
 ├── poster.py           # Poster image creation
 ├── requirements.txt
 ├── .env                # API key (not uploaded to GitHub)
-├── fonts/              # Typography assets
-│   ├── Montserrat-Bold.ttf
-│   └── Montserrat-Regular.ttf
+│
+├── Montserrat-Bold.ttf             # Typography assets
+├── Montserrat-Regular.ttf
+│
 └── README.md
 ```
 
@@ -167,7 +168,7 @@ GEMINI_API_KEY="your_api_key_here"
 ## 👨‍💻 Author
 
 **Venu**
-B.Tech Student – Computer Science
+B.Tech Student – Computer Science - (AI)
 
 ---
 
