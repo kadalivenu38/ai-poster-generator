@@ -3,6 +3,8 @@
 An AI-powered web application that automatically generates event posters using Generative AI.
 Users provide a topic, tone, and style — the system produces a headline, tagline, and a downloadable poster image instantly.
 
+Live-URL : https://ai-poster-generator-9wzuvpeychuqnhldbvh7s2.streamlit.app/
+
 ---
 
 ## 📌 Problem Statement
