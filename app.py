@@ -4,6 +4,10 @@ from poster import create_poster
 
 st.title("AI Poster Generator")
 
+# Initialize session state for button disable state
+if "generating" not in st.session_state:
+    st.session_state.generating = False
+
 topic = st.text_input("Enter Event / Topic")
 tone = st.selectbox("Tone", ["Funny", "Professional", "Motivational", "Inspirational", "Humorous", "Elegant", "Bold", "Casual"])
 style = st.selectbox("Style", ["Modern", "Minimal", "Vintage", "Neon", "Gradient", "Bordered", "Textured", "Monochrome"])
@@ -15,16 +19,29 @@ tagline_color = st.color_picker("Tagline Text Color", "#FFD700")
 background_effect = st.selectbox("Background Effect", ["Overlay", "Gradient", "Solid"])
 extra = st.text_area("Additional Details")
 
-if st.button("Generate Poster"):
+# Show button or status message
+if not st.session_state.generating:
+    if st.button("Generate Poster"):
+        st.session_state.generating = True
+else:
+    st.write("⏳ Generating poster, please wait...")
 
-    result = generate_caption(topic, tone, style, extra)
+# Process poster generation
+if st.session_state.generating:
+    try:
+        result = generate_caption(topic, tone, style, extra)
 
-    st.subheader("AI Generated Content")
-    st.write(result)
+        st.subheader("AI Generated Content")
+        st.write(result)
 
-    poster = create_poster(result, style, color_scheme, font_size_title, font_size_tagline, text_color, tagline_color, background_effect)
+        poster = create_poster(result, style, color_scheme, font_size_title, font_size_tagline, text_color, tagline_color, background_effect)
 
-    st.image(poster)
+        st.image(poster)
 
-    with open(poster, "rb") as f:
-        st.download_button("Download Poster", f, file_name="poster.png")
+        with open(poster, "rb") as f:
+            st.download_button("Download Poster", f, file_name="poster.png")
+    except Exception as e:
+        st.error(f"Error generating poster: {str(e)}")
+    finally:
+        st.session_state.generating = False
+        st.rerun()
