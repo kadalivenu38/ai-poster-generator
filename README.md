@@ -54,7 +54,7 @@ This eliminates the need for design experience and significantly reduces the tim
 
 ## 🧠 System Workflow
 
-1. User enters event topic, tone, and style.
+1. User enters event topic, tone, and style etc...
 2. The system sends a prompt to the Gemini AI model.
 3. AI generates a short caption and tagline.
 4. A background image is fetched.
